@@ -1,0 +1,280 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="card col-md-8 color_borde">
+
+            <div class="card-header color_head ">
+                <h3 class="card-title text-center">Tomar pedido </h3>
+            </div>
+
+            <div class="card-body">
+
+
+                <form name="pedido" id="pedido" method="POST" action="/cocina" enctype="application/json">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-3 ">
+                                <h5>Mozo</h5>
+                                <input type="text" name="mozo" id="mozo" class="form-control" onkeyup="PasarValor()"
+                                    required autofocus>
+
+                            </div>
+                            <div class="col-6 col-md-3 ml-auto ">
+                                <h5>Mesa</h5>
+                                <input type="number" name="mesa" id="mesa" class="form-control" onkeyup="PasarValor()"
+                                    required autofocus>
+
+                            </div>
+
+
+                            <dic class="w-100">
+                                <div>
+                                    <br>
+                                    <div class="mt-3">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <th>Plato</th>
+                                                <th>Cantidad</th>
+                                                <th>Importe</th>
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <td>Cafe</td>
+
+                                                    <td><label><input type="number" name="cafe" onKeyUp="Suma()"
+                                                                class="form-control" autofocus></label>
+                                                    </td>
+                                                    <td><input type="text" class="form-control" name="gasto1" disabled>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medialunas</td>
+
+                                                    <td><label><input type="number" name="medialunas" onKeyUp="Suma()"
+                                                                class="form-control" autofocus></label>
+                                                    </td>
+                                                    <td><input type="text" class="form-control" name="gasto2" disabled>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Tostadas</td>
+
+                                                    <td><label><input type="number" name="tostadas" onKeyUp="Suma()"
+                                                                class="form-control" autofocus></label>
+                                                    </td>
+                                                    <td><input type="text" class="form-control" name="gasto3" disabled>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Exprimido</td>
+
+                                                    <td><label><input type="number" name="exprimido" onKeyUp="Suma()"
+                                                                class="form-control" autofocus></label>
+                                                    </td>
+                                                    <td><input type="text" class="form-control" name="gasto4" disabled>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Soda</td>
+
+                                                    <td><label><input type="number" name="soda" onKeyUp="Suma()"
+                                                                class="form-control" autofocus></label>
+                                                    </td>
+                                                    <td><input type="text" class="form-control" name="gasto5" disabled>
+                                                    </td>
+                                                </tr>
+
+
+                                            </tbody>
+
+                                        </table>
+                                        <div class="form-group fade">
+                                            <select class="form-control" type="text" name="estado">
+                                                <option value="En preparacion" selected>En preparacion</option>
+                                                <option value="Retirar pedido">Retirar pedido</option>
+                                                <option value="Entregado">Entregado</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <div class="container">
+                                                <div class="row">
+
+                                                    <label class="col-xs-3 ml-auto">
+
+                                                        <div class="input-group mb-3">
+                                                            <h5> Total:</h5>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input type="number" name="total" class="form-control"
+                                                                aria-label="Amount (to the nearest dollar)" readonly>
+
+                                                        </div>
+                                                    </label>
+
+
+                                                    <div class="w-100"></div>
+
+                                                    <br>
+
+
+
+                                                      
+                                                    <button type="button" id="btn1" class="btn btn-outline-primary"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        Ver pedido
+                                                    </button>
+
+                                                    
+                                                    <div class="modal fade color_borde" id="exampleModal" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div
+                                                            class="modal-dialog  modal-dialog-centered modal-dialog-scrollable modal-sm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header color_head">
+                                                                    <h3 class="modal-title" id="exampleModalLabel">
+                                                                        Pedido
+                                                                    </h3>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-6 col-md-6">
+                                                                            Mozo:
+                                                                            <input type="text" class="form-control"
+                                                                                id="mozo2" disabled>
+                                                                        </div>
+                                                                        <div class="col-6 col-md-6">
+                                                                            Mesa:
+                                                                            <input type="text" class="form-control "
+                                                                                id="mesa2" disabled>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <ul class="list-group">
+                                                                        <li class="list-group-item">
+                                                                            <h4 class="modal-title">
+                                                                                Consumiciones:
+                                                                            </h4>
+                                                                        </li>
+
+                                                                        <div class="row">
+
+                                                                            <li class="list-group-item col-6 col-sm-6">
+
+                                                                                <p> Cafe</p>
+
+                                                                            </li>
+
+                                                                            <li class="list-group-item col-6 col-sm-6">
+                                                                                <input type="number" name="cafe2"
+                                                                                    class="form-control" disabled>
+                                                                            </li>
+                                                                        </div>
+
+
+                                                                        <div class="row">
+                                                                            <li class="list-group-item col-6 col-sm-6">
+                                                                                <p>Medialunas</p>
+
+                                                                            </li>
+                                                                            <li class="list-group-item col-6 col-sm-6">
+
+                                                                                <input type="number" name="medialunas2"
+                                                                                    class="form-control" disabled>
+                                                                            </li>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <li class="list-group-item col-6 col-sm-6">
+                                                                                <p> Tostadas</p>
+
+                                                                            </li>
+                                                                            <li class="list-group-item col-6 col-sm-6">
+
+                                                                                <input type="number" name="tostadas2"
+                                                                                    class="form-control" disabled>
+                                                                            </li>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <li class="list-group-item col-6 col-sm-6">
+                                                                                <p>Exprimido</p>
+
+                                                                            </li>
+                                                                            <li class="list-group-item col-6 col-sm-6">
+
+                                                                                <input type="number" name="exprimido2"
+                                                                                    class="form-control" disabled>
+                                                                            </li>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <li class="list-group-item col-6 col-sm-6">
+                                                                                <p>Soda</p>
+
+                                                                            </li>
+                                                                            <li class="list-group-item col-6 col-sm-6">
+
+                                                                                <input type="number" name="soda2"
+                                                                                    class="form-control" disabled>
+                                                                            </li>
+                                                                        </div>
+                                                                    </ul>
+
+                                                                    <div class="modal-footer">
+
+                                                                        <div class="row">
+                                                                            <div class="col-4">
+                                                                                <h5>
+                                                                                    <p>Total</p>
+                                                                                </h5>
+                                                                            </div>
+                                                                            <div class="col-8">
+                                                                                <input type="number" name="total2"
+                                                                                    class="form-control "
+                                                                                    aria-label="Amount (to the nearest dollar)"
+                                                                                    disabled>
+                                                                            </div>
+                                                                            <div class="w-100"></div>
+                                                                            <br>
+                                                                            <div class="col-12">
+                                                                                <button type="button"
+                                                                                    class="btn btn-outline-secondary btn-block"
+                                                                                    data-bs-dismiss="modal">Cerrar</button>
+
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div id="btn2" class="ml-auto">
+                                                        <button class="btn btn-outline-success" type="submit">
+                                                            Enviar
+                                                        </button>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>

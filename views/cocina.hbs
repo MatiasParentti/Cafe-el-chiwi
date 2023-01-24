@@ -1,0 +1,159 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
+    {{#each pedido}}
+    <div class="col">
+        <div class="card color_borde">
+            <div class="card-header">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                <a class="btn btn-outline-warning btn-sm" href='/cocina/edit/{{this._id}}'>Estado:</a>
+
+                                <a class="btn btn-outline-warning btn-sm ml-auto"
+                                    href='/cocina/delete/{{this._id}}'>X</a>
+                            </div>
+                        </div>
+                    </li>
+                    {{#if this.estado}}
+                    <li class="list-group-item">
+                        <div style="BORDER:#291309 1px solid;"  class="btn btn-light btn-lg btn-block {{this.estado}} ">
+                            <h5>{{this.estado}}</h5>
+                        </div>
+                    </li>
+                    {{/if}}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                <div>
+                                    Mozo:
+                                    {{this.mozo}}
+                                </div>
+                                <div class="ml-auto">
+                                    Mesa:
+                                    {{this.mesa}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5> Consumiciones:</h5>
+                    </li>
+
+                    {{#if this.cafe}}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                Cafe:
+                                <div class="ml-auto">
+                                    {{this.cafe}} <i>u.</i>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/if}}
+
+
+                    {{#if this.medialunas}}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                Medialunas:
+                                <div class="ml-auto">
+                                    {{this.medialunas}} <i>u.</i>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    {{/if}}
+
+
+                    {{#if this.tostadas}}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                Tostadas:
+                                <div class="ml-auto">
+                                    {{this.tostadas}} <i>u.</i>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/if}}
+
+
+                    {{#if this.exprimido}}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                Exprimido:
+                                <div class="ml-auto">
+                                    {{this.exprimido}} <i>u.</i>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/if}}
+
+                    {{#if this.soda}}
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                Soda:
+                                <div class="ml-auto">
+                                    {{this.soda}} <i>u.</i>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/if}}
+
+                </ul>
+                <br>
+
+                <div class="card-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <p>Total a pagar</p>
+                            </div>
+                            <div class="ml-auto">
+                                ${{this.total}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+
+    {{else}}
+    <div class="container">
+        <div class="card text-center color_borde">
+            <div class="card-header color_head">
+                <h3 class="card-title">No hay pedidos aun.</h3>
+            </div>
+            <div class="card-body">
+
+
+
+                <div class="mt-3">
+                    <a href="/mozo" class="btn btn-outline-primary btn-lg">Tomar pedido</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

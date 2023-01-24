@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="card col-md-6 text-center color_borde">
+            <div class="card-header color_head">
+                <h3 class="card-title">Estado</h3>
+            </div>
+            <div class="card-body">
+                <form id="pedido" action="/cocina?_method=PUT" method="POST" enctype="application/json">
+                    <input type="hidden" name="_id" value="{{pedido._id}}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+
+                            <select id="select" class="form-control col-md-6 " name="estado">
+                                <option disabled>Seleccionar estado</option>
+                                <option style="background-color: red;" value="En preparacion" {{ selected
+                                    pedido.estado "En preparacion" }}>En preparacion
+                                </option>
+                                <option style="background-color: green;" value="Retirar pedido" {{selected
+                                    pedido.estado "Retirar pedido" }}>Retirar pedido
+                                </option>
+                                <option style="background-color: blue;" value="Entregado" {{selected
+                                    pedido.estado "Entregado" }}>Entregado</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="container mt-3">
+                        <div class="row">
+                            <div><a href="/cocina" class="btn btn-lg btn-outline-primary">
+                                    Volver
+                                </a></div>
+                            <div class="ml-auto">
+                                <button class="btn btn-outline-success btn-lg" type="submit">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
